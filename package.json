@@ -1,0 +1,58 @@
+{
+  "name": "video-transcription-backend",
+  "version": "1.0.0",
+  "description": "Backend service for video transcription and question generation",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "clean": "rimraf dist",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest",
+    "docker:build": "docker build -t video-transcription-backend .",
+    "docker:run": "docker run -p 3000:3000 -v $(pwd)/uploads:/app/uploads video-transcription-backend"
+  },
+  "keywords": [
+    "video",
+    "transcription", 
+    "whisper",
+    "llm",
+    "questions",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "routing-controllers": "^0.10.4",
+    "reflect-metadata": "^0.1.13",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5",
+    "axios": "^1.6.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.11",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3",
+    "ts-node-dev": "^2.0.0",
+    "rimraf": "^5.0.5",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
